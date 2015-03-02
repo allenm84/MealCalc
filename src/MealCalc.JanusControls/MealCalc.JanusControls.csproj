@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1F3AE29-ADF4-4A5D-AB96-166445EF5945}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MealCalc.JanusControls</RootNamespace>
+    <AssemblyName>MealCalc.JanusControls</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;JanusGridEx;JanusEditControls</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE;JanusGridEx;JanusEditControls</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Janus.Data.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf" />
+    <Reference Include="Janus.Windows.Common.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf" />
+    <Reference Include="Janus.Windows.GridEX.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf" />
+    <Reference Include="Janus.Windows.UI.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\projects\extensions\extensions\Controls.cs">
+      <Link>Extensions\Controls.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\Projects\Extensions\Extensions\Janus.cs">
+      <Link>Extensions\Janus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\projects\references\references\windows\winforms\DoWork.cs">
+      <Link>References\DoWork.cs</Link>
+    </Compile>
+    <Compile Include="Dialogs\CalculateNutritionalInfoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\CalculateNutritionalInfoDialog.Designer.cs">
+      <DependentUpon>CalculateNutritionalInfoDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditIngredientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EditIngredientControl.Designer.cs">
+      <DependentUpon>EditIngredientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditNutritionalInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EditNutritionalInfoControl.Designer.cs">
+      <DependentUpon>EditNutritionalInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditServingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EditServingControl.Designer.cs">
+      <DependentUpon>EditServingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumericEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\OKCancelPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OKCancelPanel.Designer.cs">
+      <DependentUpon>OKCancelPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SplitContainerEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewNutritionalInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewNutritionalInfoControl.Designer.cs">
+      <DependentUpon>ViewNutritionalInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\EditCategoriesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditCategoriesDialog.Designer.cs">
+      <DependentUpon>EditCategoriesDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\EditIngredientDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditIngredientDialog.Designer.cs">
+      <DependentUpon>EditIngredientDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\EditIngredientsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditIngredientsDialog.Designer.cs">
+      <DependentUpon>EditIngredientsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\EditRecipeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditRecipeDialog.Designer.cs">
+      <DependentUpon>EditRecipeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\EditServingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditServingDialog.Designer.cs">
+      <DependentUpon>EditServingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SelectIngredientDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SelectIngredientDialog.Designer.cs">
+      <DependentUpon>SelectIngredientDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\TextInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\TextInputDialog.Designer.cs">
+      <DependentUpon>TextInputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\EditRecipeNutritionalInfoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditRecipeNutritionalInfoDialog.Designer.cs">
+      <DependentUpon>EditRecipeNutritionalInfoDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\JanusStyleHelper.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\EditIngredientControl.resx">
+      <DependentUpon>EditIngredientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EditNutritionalInfoControl.resx">
+      <DependentUpon>EditNutritionalInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EditServingControl.resx">
+      <DependentUpon>EditServingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OKCancelPanel.resx">
+      <DependentUpon>OKCancelPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ViewNutritionalInfoControl.resx">
+      <DependentUpon>ViewNutritionalInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\CalculateNutritionalInfoDialog.resx">
+      <DependentUpon>CalculateNutritionalInfoDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditCategoriesDialog.resx">
+      <DependentUpon>EditCategoriesDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditIngredientDialog.resx">
+      <DependentUpon>EditIngredientDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditIngredientsDialog.resx">
+      <DependentUpon>EditIngredientsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditRecipeDialog.resx">
+      <DependentUpon>EditRecipeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditRecipeNutritionalInfoDialog.resx">
+      <DependentUpon>EditRecipeNutritionalInfoDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditServingDialog.resx">
+      <DependentUpon>EditServingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SelectIngredientDialog.resx">
+      <DependentUpon>SelectIngredientDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\TextInputDialog.resx">
+      <DependentUpon>TextInputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <None Include="Resources\star-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MealCalc\MealCalc.csproj">
+      <Project>{c98d1a2a-b347-4284-ab10-a8fca8b90c15}</Project>
+      <Name>MealCalc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
