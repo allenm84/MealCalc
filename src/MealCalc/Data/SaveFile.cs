@@ -52,6 +52,7 @@ namespace MealCalc
     }
 
     public static SaveFile Instance { get { return sInstance; } }
+    public static bool Loaded { get { return (sInstance != null); } }
 
     public static void Load()
     {

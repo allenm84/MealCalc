@@ -56,6 +56,7 @@
     <Compile Include="Data\SaveFile.cs" />
     <Compile Include="Data\Serving.cs" />
     <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Helpers\Display.cs" />
     <Compile Include="Helpers\Factory.cs" />
     <Compile Include="Helpers\RecipeCalculatorSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

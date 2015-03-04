@@ -326,11 +326,6 @@ namespace MealCalc.Winforms
       UpdateNutritionalDisplay();
     }
 
-    private void ctrlEditServing_IsDirtyChanged(object sender, EventArgs e)
-    {
-      UpdateNutritionalDisplay();
-    }
-
     private void gridIngredients_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
       if (e.ColumnIndex == gridIngredients.Columns["IngredientID"].Index)
@@ -338,11 +333,7 @@ namespace MealCalc.Winforms
         var row = gridIngredients.Rows[e.RowIndex];
         var ingredient = row.DataBoundItem as IngredientRef;
         e.FormattingApplied = true;
-        e.Value = string.Format("{0} {1}{2} of {3}{2}",
-          ingredient.Serving.Amount,
-          ingredient.Serving.Type,
-          ingredient.Serving.Amount == 1m ? "" : "s",
-          Accessor.GetIngredient(ingredient.IngredientID, addedIngredients, SaveFile.Instance.Ingredients).Name);
+        e.Value = Display.GetDisplay(ingredient, addedIngredients, SaveFile.Instance.Ingredients);
       }
     }
 
