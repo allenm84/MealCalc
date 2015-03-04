@@ -1,4 +1,4 @@
-﻿namespace MealCalc.DevX.Dialogs
+﻿namespace MealCalc.DevX
 {
   partial class BaseForm
   {

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Common.References;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -73,6 +75,15 @@ namespace MealCalc
         ID = Tuid.Next,
         Info = Factory.NewNutritionalInfo(),
         Name = name,
+      };
+    }
+
+    public static IngredientRef NewIngredientReference(string id, Serving serving)
+    {
+      return new IngredientRef
+      {
+        IngredientID = id,
+        Serving = serving,
       };
     }
   }
