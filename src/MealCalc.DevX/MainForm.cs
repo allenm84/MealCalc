@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.Utils;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 
 namespace MealCalc.DevX
@@ -34,7 +36,19 @@ namespace MealCalc.DevX
       gridRecipes.AutoGenerateColumns = false;
       gridRecipes.Editor = new RecipeEditor();
       gridRecipes.Mode = GridListControlViewMode.List;
+      gridRecipes.View.OptionsView.ShowVerticalLines = DefaultBoolean.False;
+      gridRecipes.View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
       gridRecipes.DataSource = recipes;
+
+      var chkFavorite = new RepositoryItemCheckEdit();
+      chkFavorite.PictureChecked = MealCalc.DevX.Properties.Resources.Star;
+      chkFavorite.CheckStyle = CheckStyles.UserDefined;
+
+      var clmnFavorite = gridRecipes.View.Columns.AddField("Favorite");
+      clmnFavorite.Visible = true;
+      clmnFavorite.MinWidth = 18;
+      clmnFavorite.MaxWidth = 18;
+      clmnFavorite.ColumnEdit = chkFavorite;
 
       var clmnName = gridRecipes.View.Columns.AddField("Name");
       clmnName.Visible = true;

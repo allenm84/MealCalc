@@ -213,6 +213,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Dialogs\EditIngredientRefDialog.resx">
       <DependentUpon>EditIngredientRefDialog.cs</DependentUpon>
@@ -229,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.ico" />
+    <None Include="Resources\star-small.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MealCalc\MealCalc.csproj">
