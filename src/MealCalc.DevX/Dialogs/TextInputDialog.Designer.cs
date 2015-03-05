@@ -29,15 +29,15 @@
     private void InitializeComponent()
     {
       this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-      this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-      this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-      this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
       this.okCancelButtons1 = new MealCalc.DevX.OKCancelButtons();
+      this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+      this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+      this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
       this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
       ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
       this.layoutControl1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
       this.SuspendLayout();
@@ -54,6 +54,26 @@
       this.layoutControl1.TabIndex = 0;
       this.layoutControl1.Text = "layoutControl1";
       // 
+      // okCancelButtons1
+      // 
+      this.okCancelButtons1.Location = new System.Drawing.Point(12, 52);
+      this.okCancelButtons1.MaximumSize = new System.Drawing.Size(0, 26);
+      this.okCancelButtons1.MinimumSize = new System.Drawing.Size(170, 26);
+      this.okCancelButtons1.Name = "okCancelButtons1";
+      this.okCancelButtons1.Size = new System.Drawing.Size(301, 26);
+      this.okCancelButtons1.TabIndex = 5;
+      this.okCancelButtons1.OKClick += new System.EventHandler(this.okCancelButtons1_OKClick);
+      // 
+      // textEdit1
+      // 
+      this.textEdit1.EnterMoveNextControl = true;
+      this.textEdit1.Location = new System.Drawing.Point(12, 28);
+      this.textEdit1.Name = "textEdit1";
+      this.textEdit1.Size = new System.Drawing.Size(301, 20);
+      this.textEdit1.StyleController = this.layoutControl1;
+      this.textEdit1.TabIndex = 4;
+      this.textEdit1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_KeyPress);
+      // 
       // layoutControlGroup1
       // 
       this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
@@ -68,14 +88,6 @@
       this.layoutControlGroup1.Text = "layoutControlGroup1";
       this.layoutControlGroup1.TextVisible = false;
       // 
-      // textEdit1
-      // 
-      this.textEdit1.Location = new System.Drawing.Point(12, 28);
-      this.textEdit1.Name = "textEdit1";
-      this.textEdit1.Size = new System.Drawing.Size(301, 20);
-      this.textEdit1.StyleController = this.layoutControl1;
-      this.textEdit1.TabIndex = 4;
-      // 
       // layoutControlItem1
       // 
       this.layoutControlItem1.Control = this.textEdit1;
@@ -86,16 +98,6 @@
       this.layoutControlItem1.Text = "Text:";
       this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
       this.layoutControlItem1.TextSize = new System.Drawing.Size(26, 13);
-      // 
-      // okCancelButtons1
-      // 
-      this.okCancelButtons1.Location = new System.Drawing.Point(12, 52);
-      this.okCancelButtons1.MaximumSize = new System.Drawing.Size(0, 26);
-      this.okCancelButtons1.MinimumSize = new System.Drawing.Size(170, 26);
-      this.okCancelButtons1.Name = "okCancelButtons1";
-      this.okCancelButtons1.Size = new System.Drawing.Size(301, 26);
-      this.okCancelButtons1.TabIndex = 5;
-      this.okCancelButtons1.OKClick += new System.EventHandler(this.okCancelButtons1_OKClick);
       // 
       // layoutControlItem2
       // 
@@ -124,8 +126,8 @@
       this.Text = "TextInputDialog";
       ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
       this.layoutControl1.ResumeLayout(false);
-      ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
       this.ResumeLayout(false);

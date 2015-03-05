@@ -11,12 +11,36 @@ namespace MealCalc.DevX
   {
     public bool AddValue(IWin32Window owner, out object newValue)
     {
-      throw new NotImplementedException();
+      bool retval = false;
+      newValue = null;
+
+      string name;
+      if (TextInputDialog.Show(owner, "Name:", "Add Category", out name) == DialogResult.OK)
+      {
+        newValue = Factory.NewCategory(name);
+        retval = true;
+      }
+
+      return retval;
     }
 
     public bool EditValue(IWin32Window owner, object original, out object editedValue)
     {
-      throw new NotImplementedException();
+      bool retval = false;
+      editedValue = null;
+
+      var category = original as Category;
+      string name;
+
+      if (TextInputDialog.Show(owner, "Name:", "Edit Category", category.Name, out name) == DialogResult.OK)
+      {
+        var copy = category.Duplicate();
+        copy.Name = name;
+        editedValue = copy;
+        retval = true;
+      }
+
+      return retval;
     }
   }
 }
