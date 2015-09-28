@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.Utils;
+using DevExpress.Utils.Menu;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
@@ -38,6 +39,7 @@ namespace MealCalc.DevX
       gridRecipes.Mode = GridListControlViewMode.List;
       gridRecipes.View.OptionsView.ShowVerticalLines = DefaultBoolean.False;
       gridRecipes.View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+      gridRecipes.View.PopupMenuShowing += gridRecipes_PopupMenuShowing;
       gridRecipes.DataSource = recipes;
 
       var chkFavorite = new RepositoryItemCheckEdit();
@@ -58,6 +60,81 @@ namespace MealCalc.DevX
       if (recipes.Count > 0)
       {
         gridRecipes.ScrollToRow(0);
+      }
+    }
+
+    private void gridRecipes_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+    {
+      if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+      {
+        var item = new DXMenuItem("Copy To Ingredient", CopyToIngredient);
+        item.Tag = e.HitInfo.View.GetRow(e.HitInfo.RowHandle) as Recipe;
+        e.Menu.Items.Clear();
+        e.Menu.Items.Add(item);
+      }
+    }
+
+    private void CopyToIngredient(object sender, EventArgs e)
+    {
+      var item = sender as DXMenuItem;
+      if (item == null)
+      {
+        return;
+      }
+
+      var recipe = item.Tag as Recipe;
+      if (recipe == null)
+      {
+        return;
+      }
+
+      var message = string.Format("Are you sure you want to copy {0} to an ingredient?", recipe.Name);
+      if (MessageHelper.Confirm(this, message))
+      {
+        var ingredients = SaveFile.Instance.Ingredients;
+        var name = string.Format("{0} as Ingredient", recipe.Name);
+        var ingredient = Factory.NewIngredient(name);
+        var info = Calculator.CalculateNutritionalInfo(recipe.Ingredients, ingredients);
+        using (var dlg = new EditServingDialog())
+        {
+          if (dlg.ShowDialog(this) != System.Windows.Forms.DialogResult.OK)
+          {
+            return;
+          }
+
+          var size = Factory.NewServing();
+          dlg.Dehydrate(size);
+          size = Calculator.ToCups(size);
+
+          decimal divisor = 0;
+          if (size.Amount > 0)
+          {
+            divisor = info.ServingSize.Amount / size.Amount;
+          }
+
+          if (divisor != 0)
+          {
+            info = Calculator.Divide(info, divisor);
+          }
+        }
+
+        ingredient.Info = Calculator.Round(info);
+        ingredient.CategoryID = null;
+        DeferEditIngredient(ingredient);
+      }
+    }
+
+    private async void DeferEditIngredient(Ingredient ingredient)
+    {
+      await Task.Yield();
+      using (var dlg = new EditIngredientDialog(ingredient, SaveFile.Instance.Categories))
+      {
+        dlg.Text = "Confirm Copy";
+        if (dlg.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+        {
+          SaveFile.Instance.Ingredients.Add(ingredient);
+          MessageHelper.Inform(this, "Ingredient has been created from recipe!");
+        }
       }
     }
 

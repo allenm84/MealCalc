@@ -121,6 +121,12 @@
     <Compile Include="Dialogs\EditRecipeDialog.Designer.cs">
       <DependentUpon>EditRecipeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\EditServingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditServingDialog.Designer.cs">
+      <DependentUpon>EditServingDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="DataControls\IngredientListEditor.cs">
       <SubType>UserControl</SubType>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\EditRecipeDialog.resx">
       <DependentUpon>EditRecipeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditServingDialog.resx">
+      <DependentUpon>EditServingDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TextInputDialog.resx">
       <DependentUpon>TextInputDialog.cs</DependentUpon>
