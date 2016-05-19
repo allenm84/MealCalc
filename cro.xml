@@ -1,0 +1,4 @@
+<cro type="Default" path="Paige\Programs">
+  <pattern>*.dll</pattern>
+  <pattern>*.exe</pattern>
+</cro>
